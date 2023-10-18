@@ -1,7 +1,7 @@
 import java.util.List;
 
 /**
- * zur Verwaltung der Kundendaten
+ * vorläufiger Prototyp zur Verwaltung der Kundendaten
  * @author sven
  *
  */

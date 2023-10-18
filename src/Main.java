@@ -10,8 +10,6 @@ public class Main {
 	public static void main(String[] args) {
 		
 		PizzaOrderController pizzaOrderController = new PizzaOrderController();
-		pizzaOrderController.populateKunden();
-		pizzaOrderController.populatePizzaMenu();
 		
 		Kunde k0 = pizzaOrderController.kunden.get(0);
 		
