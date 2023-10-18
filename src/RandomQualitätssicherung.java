@@ -1,6 +1,11 @@
 import java.util.Random;
 
-public class Qualitätssicherung {
+/**
+ * 
+ * @author sven
+ *
+ */
+public class RandomQualitätssicherung {
 
 	Random r = new Random();
 	

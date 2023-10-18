@@ -1,5 +1,10 @@
 import java.util.List;
 
+/**
+ * zur Verwaltung der Kundendaten
+ * @author sven
+ *
+ */
 public class Kunde {
 	String name;
 	List<Adresse> adressen;

@@ -11,7 +11,7 @@ public class PizzaOrderController {
 	PaymentServiceProvider psp;
 	PizzaAutomat pizzaAutomat;
 	Drohne drohne;
-	Qualitätssicherung qs;
+	RandomQualitätssicherung qs;
 	List<PizzaTyp> pizzaMenu;
 	List<Bestellung> bestellungen;
 	List<Kunde> kunden;
@@ -20,21 +20,33 @@ public class PizzaOrderController {
 		psp = new PaymentServiceProvider();
 		pizzaAutomat = new PizzaAutomat();
 		drohne = new Drohne();
-		qs = new Qualitätssicherung();
+		qs = new RandomQualitätssicherung();
 		kunden = new ArrayList<>();
 		pizzaMenu = new ArrayList<>();
 		bestellungen = new ArrayList<>();
 	}
 	
+	/**
+	 * Kunde hinzufügen
+	 * @param k
+	 */
 	public void addKunde(Kunde k) {
 		kunden.add(k);
 	}
 	
+	/**
+	 * neue Bestellung ausführen
+	 * @param b
+	 */
 	public void addBestellung(Bestellung b) {
 		bestellungen.add(b);
 		handleBestellung(b);
 	}
 	
+	/**
+	 * Bestellung abarbeiten
+	 * @param bestellung
+	 */
 	private void handleBestellung(Bestellung bestellung) {
 		// TODO Auto-generated method stub
 		List<PizzaProdukt> ready = new ArrayList<>();
@@ -44,17 +56,18 @@ public class PizzaOrderController {
 		drohne.deliver(ready, bestellung.adresse);
 	}
 	
-	
-
+	/*
+	 * 
+	 */
 	private PizzaProdukt makePizza(PizzaProdukt p) {
-		// TODO Auto-generated method stub
-		PizzaProdukt p1 = pizzaAutomat.backePizza(p);
-		while (!qs.checkPizza(p1)) {
-			p1 = pizzaAutomat.backePizza(p);
-		}
-		return p;
+		
+		System.out.println("makePizza nicht implementiert, pls fix me");
+		return null;
 	}
 
+	/**
+	 * erstellt ein paar Demo-Kunden
+	 */
 	public void populateKunden() {
 		
 		kunden.add(new Kunde("Max Muster", List.of(new Adresse("Musterstrasse 1", "Murksstadt"))));
@@ -62,6 +75,9 @@ public class PizzaOrderController {
 		
 	}
 	
+	/**
+	 * erstellt ein Demo-Pizza-Menü
+	 */
 	public void populatePizzaMenu() {
 		pizzaMenu.add(new PizzaTyp("Margaritha", List.of("Teig", "Tomatensosse", "Mozarella")));
 		pizzaMenu.add(new PizzaTyp("Tonno", List.of("Teig", "Tomatensosse", "Thon", "Mozarella")));
